@@ -7,10 +7,17 @@ int isATriangle(int a, int b,int c){
 	return 0;
 }
 
+string typeOfTriangle(int a,int b, int c){
+	//能進到這個function表示確定是三角形
+	//case 1 Scalene
+	if(a!=b && b!=c && c!=a) return "Scalene"; //三邊不相等
+	else return "Another case";
+}
+
 string tri(int a,int b, int c)
 {
 	if(isATriangle(a,b,c)){
-		return "Is A triangle";
+		return typeOfTriangle(a,b,c);
 	}
 	else return "Not a triangle";
 }
