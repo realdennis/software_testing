@@ -11,7 +11,8 @@ string typeOfTriangle(int a,int b, int c){
 	//能進到這個function表示確定是三角形
 	//case 1 Scalene
 	if(a!=b && b!=c && c!=a) return "Scalene"; //三邊不相等
-	else return "Another case";
+	else if(a==b && b==c) return "Equilateral";
+	return "Isosceles";
 }
 
 string tri(int a,int b, int c)
