@@ -24,4 +24,19 @@ TEST(Decision_Table,strong){
 	EXPECT_EQ(tri(50,100,200),"Not a triangle");
 	//c!=a
 	EXPECT_EQ(tri(5,5,4),"Isosceles");
+	//a != b != c
+	EXPECT_EQ(tri(3, 4, 5), "Scalene");
+}
+
+TEST(Equivalence_Class,week_robust){
+	EXPECT_EQ(tri(3, 4, 5), "Scalene");
+	EXPECT_EQ(tri(3, 3, 5), "Isosceles");
+	EXPECT_EQ(tri(100, 100, 100), "Equilateral");
+	EXPECT_EQ(tri(3, 4, 7), "Not a triangle");
+}
+
+TEST(Equivalence_Class_Testing, strong_normal) {
+	EXPECT_EQ(tri(3, 4, 5), "Scalene");
+	EXPECT_EQ(tri(3, 4, 100), "Not a triangle");
+	EXPECT_EQ(tri(3, 100, 5), "Not a triangle");
 }
