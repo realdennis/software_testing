@@ -1,10 +1,43 @@
 #include "gtest/gtest.h"
 #include "tri.h"
-TEST(Boundary, normal){
+TEST(Boundary_Value, week_normal) {
+	EXPECT_EQ(tri(3, 4, 5), "Scalene");
+	EXPECT_EQ(tri(1, 4, 5), "Not a triangle");
+	EXPECT_EQ(tri(200, 4, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 1, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 200, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 1), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 200), "Not a triangle");
+}
+
+TEST(Boundary_Value, week_robust) {
+	EXPECT_EQ(tri(0, 4, 5), "Not a triangle");
 	EXPECT_EQ(tri(1, 4, 5), "Not a triangle");
 	EXPECT_EQ(tri(3, 4, 5), "Scalene");
+	EXPECT_EQ(tri(200, 4, 5), "Not a triangle");
+	EXPECT_EQ(tri(201, 4, 5), "Not a triangle");
+}
+
+TEST(Boundary_Value_Testing, strong_normal) {
 	EXPECT_EQ(tri(1, 1, 1), "Equilateral");
-	EXPECT_EQ(tri(3, 3, 5), "Isosceles");
+	EXPECT_EQ(tri(3, 1, 1), "Not a triangle");
+	EXPECT_EQ(tri(200, 1, 1), "Not a triangle");
+	EXPECT_EQ(tri(1, 4, 1), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 1), "Not a triangle");
+	EXPECT_EQ(tri(200, 4, 1), "Not a triangle");
+	EXPECT_EQ(tri(1, 200, 1), "Not a triangle");
+}
+
+TEST(Boundary_Value_Testing, strong_robust) {
+	EXPECT_EQ(tri(0, 0, 0), "Not a triangle");
+	EXPECT_EQ(tri(1, 0, 0), "Not a triangle");
+	EXPECT_EQ(tri(3, 0, 0), "Not a triangle");
+	EXPECT_EQ(tri(200, 0, 0), "Not a triangle");
+	EXPECT_EQ(tri(201, 0, 0), "Not a triangle");
+
+	EXPECT_EQ(tri(201, 200, 1), "Not a triangle");
+
+	EXPECT_EQ(tri(201, 201, 1), "Not a triangle");
 }
 
 TEST(Decision_Table,strong){
