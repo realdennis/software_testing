@@ -16,6 +16,14 @@ TEST(Boundary_Value, week_robust) {
 	EXPECT_EQ(tri(3, 4, 5), "Scalene");
 	EXPECT_EQ(tri(200, 4, 5), "Not a triangle");
 	EXPECT_EQ(tri(201, 4, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 0, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 1, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 200, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 201, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 0), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 1), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 200), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 201), "Not a triangle");
 }
 
 TEST(Boundary_Value_Testing, strong_normal) {
@@ -34,9 +42,7 @@ TEST(Boundary_Value_Testing, strong_robust) {
 	EXPECT_EQ(tri(3, 0, 0), "Not a triangle");
 	EXPECT_EQ(tri(200, 0, 0), "Not a triangle");
 	EXPECT_EQ(tri(201, 0, 0), "Not a triangle");
-
 	EXPECT_EQ(tri(201, 200, 1), "Not a triangle");
-
 	EXPECT_EQ(tri(201, 201, 1), "Not a triangle");
 }
 
