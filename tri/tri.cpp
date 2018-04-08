@@ -3,6 +3,9 @@
 using namespace std;
 
 int isATriangle(int a, int b,int c){
+	//boundary test
+	if(a>200 || b>200 || c>200)	return 0;
+	
 	if(	a<(b+c)	&&	b<(a+c)	&&	c<(a+b)	) return 1;	
 	return 0;
 }
