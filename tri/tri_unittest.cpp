@@ -34,6 +34,11 @@ TEST(Boundary_Value_Testing, strong_normal) {
 	EXPECT_EQ(tri(3, 4, 1), "Not a triangle");
 	EXPECT_EQ(tri(200, 4, 1), "Not a triangle");
 	EXPECT_EQ(tri(1, 200, 1), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 200), "Not a triangle");
+	EXPECT_EQ(tri(200, 4, 200), "Isosceles");
+	EXPECT_EQ(tri(1, 200, 200), "Isosceles");
+	EXPECT_EQ(tri(3, 200, 200), "Isosceles");
+	EXPECT_EQ(tri(200, 200, 200), "Equilateral");
 }
 
 TEST(Boundary_Value_Testing, strong_robust) {
