@@ -218,6 +218,12 @@ TEST(Equivalence_Class_Testing, week_normal) {
 TEST(Equivalence_Class,week_robust){
 	EXPECT_EQ(tri(3, 4, 5), "Scalene");
 	EXPECT_EQ(tri(3, 3, 5), "Isosceles");
+	EXPECT_EQ(tri(3, 201, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 0), "Not a triangle");
+	EXPECT_EQ(tri(3, 4, 201), "Not a triangle");
+	EXPECT_EQ(tri(0, 4, 5), "Not a triangle");
+	EXPECT_EQ(tri(201, 4, 5), "Not a triangle");
+	EXPECT_EQ(tri(3, 0, 5), "Not a triangle");
 	EXPECT_EQ(tri(100, 100, 100), "Equilateral");
 	EXPECT_EQ(tri(3, 4, 7), "Not a triangle");
 }
@@ -225,6 +231,11 @@ TEST(Equivalence_Class,week_robust){
 
 TEST(Equivalence_Class_Testing, strong_normal) {
 	EXPECT_EQ(tri(3, 4, 5), "Scalene");
+	EXPECT_EQ(tri(100, 100, 5), "Isosceles");
+	EXPECT_EQ(tri(100, 100, 100), "Equilateral");
+	EXPECT_EQ(tri(3, 100, 100), "Isosceles");
+	EXPECT_EQ(tri(100, 4, 100), "Isosceles");
+	EXPECT_EQ(tri(100, 4, 5), "Not a triangle");
 	EXPECT_EQ(tri(3, 4, 100), "Not a triangle");
 	EXPECT_EQ(tri(3, 100, 5), "Not a triangle");
 }
