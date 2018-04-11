@@ -17,12 +17,13 @@
 -   one to get a scalene triangle
 -   3 to get isosceles triangle
 
-
     
         EXPECT_EQ(tri(1, 4, 5), "Not a triangle");
         EXPECT_EQ(tri(3, 4, 5), "Scalene");
         EXPECT_EQ(tri(1, 1, 1), "Equilateral");
         EXPECT_EQ(tri(3, 3, 5), "Isosceles");
+![](https://i.imgur.com/wNVcmR5.png)
+
 
 很顯然的只有Not a triangle會過，**但其實這樣也是錯的**，（不代表真的有驗證），所以第一步，我決定在feature code裡頭新增一個判定是否為三角形的檢驗：
 
@@ -43,13 +44,8 @@ Scalene的Case為三邊不相等
 	else return "Another case";
 其他的case我們先回傳Another case好了。
 
-    tri(1, 1, 1)
-    Which is: "Another case"
-    "Equilateral"
-    
-    tri(3, 3, 5)
-    Which is: "Another case"
-    "Isosceles"
+![](https://i.imgur.com/zXaEO6X.png)
+
 果不其然被Google test挑出來
 
 顯然這兩個Case過不了關 test failed
@@ -72,30 +68,6 @@ Equilateral的case為三邊相等
 	return "Isosceles";//another case
 ok，最終在google test裡顯示的是三者皆ok，我們用三種case實作了這個功能，但是還需要更多更多的測試。
 
-## Boundary Value測試
-
--   Normal boundary are {1,2,199,200}
--   Robust values {0,201}
-
-**best known specification-based testing
-thinking: range-based test case ? how ?**
-
-
-
->    Take 200 as an upper bound
->    Normal boundary are {1,2,199,200}
->    Robust values {0,201}
-
-在strong robust的test case (201,201,1)無法通過測試，因為feature code沒有做好boundary，於是去把feature補上。
-
-## 實現邊界規範
-
-在isATriangle function中補上boundary check
-
-	//boundary test
-	if(a>200 || b>200 || c>200)	return 0;
-
-
 ## Equivalence Class測試
 
 -   invalid data
@@ -112,3 +84,29 @@ Strong Robust
 -   Strong: multiple faults
 -   Robust: invalid values
 
+
+## Boundary Value測試
+
+-   Normal boundary are {1,2,199,200}
+-   Robust values {0,201}
+
+**best known specification-based testing
+thinking: range-based test case ? how ?**
+
+>    Take 200 as an upper bound
+>    Normal boundary are {1,2,199,200}
+>    Robust values {0,201}
+
+在strong robust的test case (201,201,1)無法通過測試，因為feature code沒有做好boundary，於是去把feature補上。
+![](https://i.imgur.com/kptCC1r.png)
+
+
+## 實現邊界規範
+
+在isATriangle function中補上boundary check
+
+	//boundary test
+	if(a>200 || b>200 || c>200)	return 0;
+
+## 完成
+![](https://i.imgur.com/J7LR1Wj.png)
