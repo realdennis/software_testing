@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './tri'
+                sh './make/tri'
             }
         }
     }
