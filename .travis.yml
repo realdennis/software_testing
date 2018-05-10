@@ -1,0 +1,12 @@
+language: cpp
+compiler:
+- g++
+os:
+- linux
+script:
+- make -C make
+- ./make/tri
+- gcov tri.cpp
+branches:
+  only:
+  - master
