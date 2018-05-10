@@ -1,6 +1,6 @@
 # Software Testing
 [![Build Status](https://travis-ci.org/realdennis/software_testing.svg?branch=master)](https://travis-ci.org/realdennis/software_testing)
-
+[![codecov](https://codecov.io/gh/realdennis/software_testing/branch/master/graph/badge.svg)](https://codecov.io/gh/realdennis/software_testing)
 ## triangle
 
 為了能夠**Test-Driven Development**，所以希望能透過各種test case去反覆精進feature code。
