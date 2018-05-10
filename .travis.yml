@@ -6,6 +6,7 @@ os:
 script:
 - make -C make
 - ./make/tri
+- cd ./make
 - gcov tri.cpp
 branches:
   only:
